@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MathMind AI — Step-by-Step Math Solver</title>
+  <meta name="description" content="AI-powered math tutor that solves any math problem step by step." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231a1a2e'/><text y='70' x='12' font-size='55' font-family='monospace' fill='%23e8c44a'>∑x</text></svg>" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     LANDING PAGE
+═══════════════════════════════════════ -->
+<div id="landingPage" class="page active">
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="logo">
+        <div class="logo-icon">∑x</div>
+        <div>
+          <div class="logo-name">MathMind AI</div>
+          <div class="logo-tag">Step-by-step solver</div>
+        </div>
+      </div>
+      <div class="nav-actions">
+        <button class="btn-ghost" onclick="showPage('loginPage')">Login</button>
+        <button class="btn-primary" onclick="showPage('signupPage')">Free में शुरू करें</button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-badge">🎓 Indian students के लिए बना Math AI</div>
+    <h1 class="hero-title">कोई भी Math सवाल<br/><span class="accent">Step-by-Step</span> Solve करो</h1>
+    <p class="hero-sub">Algebra से Calculus तक — हर सवाल का detailed solution, Hinglish में।</p>
+    <div class="hero-btns">
+      <button class="btn-primary btn-lg" onclick="showPage('signupPage')">Free में Try करो →</button>
+      <button class="btn-ghost btn-lg" onclick="document.getElementById('demoSection').scrollIntoView({behavior:'smooth'})">Demo देखो</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-n">∞</span><span class="stat-l">Math Topics</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-n">100%</span><span class="stat-l">Step-by-Step</span></div>
+      <div class="stat-div"></div>
+      <div class="stat"><span class="stat-n">JEE/NEET</span><span class="stat-l">Ready</span></div>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <h2 class="section-title">क्या-क्या solve कर सकते हो?</h2>
+    <div class="features-grid">
+      <div class="feature-card"><div class="feat-icon">📐</div><div class="feat-name">Algebra</div><div class="feat-desc">Linear, quadratic, simultaneous equations</div></div>
+      <div class="feature-card"><div class="feat-icon">∫</div><div class="feat-name">Calculus</div><div class="feat-desc">Differentiation, integration, limits</div></div>
+      <div class="feature-card"><div class="feat-icon">📊</div><div class="feat-name">Statistics</div><div class="feat-desc">Mean, median, SD, probability</div></div>
+      <div class="feature-card"><div class="feat-icon">📏</div><div class="feat-name">Geometry</div><div class="feat-desc">Area, volume, coordinate geometry</div></div>
+      <div class="feature-card"><div class="feat-icon">🔺</div><div class="feat-name">Trigonometry</div><div class="feat-desc">sin, cos, tan, identities, height & distance</div></div>
+      <div class="feature-card"><div class="feat-icon">🔢</div><div class="feat-name">Number Theory</div><div class="feat-desc">HCF, LCM, prime numbers</div></div>
+    </div>
+  </section>
+
+  <section class="demo-section" id="demoSection">
+    <h2 class="section-title">ऐसे काम करता है MathMind</h2>
+    <div class="demo-box">
+      <div class="demo-chat">
+        <div class="demo-user">2x² - 7x + 3 = 0 solve करो</div>
+        <div class="demo-ai">
+          <div class="demo-steps">
+            <div class="demo-step"><span class="ds-label">Step 1: Identify</span> a=2, b=-7, c=3</div>
+            <div class="demo-step"><span class="ds-label">Step 2: Discriminant</span> D = b²-4ac = 49-24 = 25</div>
+            <div class="demo-step"><span class="ds-label">Step 3: Formula</span> x = (7 ± 5) / 4</div>
+            <div class="demo-step"><span class="ds-label">Step 4: Solutions</span> x₁ = 3, x₂ = 0.5</div>
+          </div>
+          <div class="demo-answer">✓ Answer: x = 3 or x = 0.5</div>
+          <div class="demo-tip">💡 Discriminant positive = 2 real roots होते हैं</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing-section" id="pricing">
+    <h2 class="section-title">Simple Pricing</h2>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="plan-name">Free</div>
+        <div class="plan-price">₹0 <span>/हमेशा</span></div>
+        <ul class="plan-features">
+          <li>✓ 5 questions per day</li>
+          <li>✓ Step-by-step solutions</li>
+          <li>✓ All math topics</li>
+          <li>✗ History save</li>
+          <li>✗ PDF export</li>
+          <li>✗ Exam mode</li>
+        </ul>
+        <button class="btn-outline" onclick="showPage('signupPage')">Free में शुरू करें</button>
+      </div>
+      <div class="price-card price-pro">
+        <div class="pro-tag">Most Popular</div>
+        <div class="plan-name">Pro</div>
+        <div class="plan-price">₹199 <span>/month</span></div>
+        <ul class="plan-features">
+          <li>✓ Unlimited questions</li>
+          <li>✓ Step-by-step solutions</li>
+          <li>✓ All math topics</li>
+          <li>✓ History save होगी</li>
+          <li>✓ PDF export</li>
+          <li>✓ JEE/NEET exam mode</li>
+        </ul>
+        <button class="btn-primary" onclick="showUpgradeModal()">Pro लो अभी</button>
+      </div>
+      <div class="price-card">
+        <div class="plan-name">Yearly</div>
+        <div class="plan-price">₹999 <span>/year</span></div>
+        <ul class="plan-features">
+          <li>✓ सब Pro features</li>
+          <li>✓ 58% savings</li>
+          <li>✓ Priority support</li>
+          <li>✓ Progress reports</li>
+          <li>✓ Parent dashboard</li>
+          <li>✓ Offline mode (coming)</li>
+        </ul>
+        <button class="btn-outline" onclick="showUpgradeModal()">Best Deal लो</button>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="logo"><div class="logo-icon">∑x</div><div><div class="logo-name" style="color:#fff">MathMind AI</div><div class="logo-tag">Made for Indian students</div></div></div>
+      <div class="footer-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Contact</a></div>
+      <div class="footer-copy">© 2025 MathMind AI</div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════════
+     LOGIN PAGE
+═══════════════════════════════════════ -->
+<div id="loginPage" class="page auth-page">
+  <div class="auth-card">
+    <div class="auth-logo"><div class="logo-icon">∑x</div><div class="logo-name">MathMind AI</div></div>
+    <h2 class="auth-title">वापस आए! 👋</h2>
+    <p class="auth-sub">अपने account में login करें</p>
+    <div class="form-group"><label>Email</label><input type="email" id="loginEmail" placeholder="your@email.com" /></div>
+    <div class="form-group"><label>Password</label><input type="password" id="loginPassword" placeholder="••••••••" /></div>
+    <div id="loginError" class="form-error" style="display:none"></div>
+    <button class="btn-primary btn-full" id="loginBtn" onclick="handleLogin()">Login करें</button>
+    <div class="auth-divider">or</div>
+    <button class="btn-google btn-full" onclick="handleGoogleLogin()">
+      <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/><path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/><path fill="#FBBC05" d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z"/><path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 6.29C4.672 4.163 6.656 3.58 9 3.58z"/></svg>
+      Google से Login करें
+    </button>
+    <p class="auth-switch">Account नहीं है? <a href="#" onclick="showPage('signupPage')">Sign up करें</a></p>
+    <p class="auth-switch" style="margin-top:6px"><a href="#" onclick="showPage('landingPage')">← वापस जाओ</a></p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     SIGNUP PAGE
+═══════════════════════════════════════ -->
+<div id="signupPage" class="page auth-page">
+  <div class="auth-card">
+    <div class="auth-logo"><div class="logo-icon">∑x</div><div class="logo-name">MathMind AI</div></div>
+    <h2 class="auth-title">Free में शुरू करें 🚀</h2>
+    <p class="auth-sub">Join करें — कोई credit card नहीं चाहिए</p>
+    <div class="form-group"><label>आपका नाम</label><input type="text" id="signupName" placeholder="जैसे: Rahul Sharma" /></div>
+    <div class="form-group"><label>Email</label><input type="email" id="signupEmail" placeholder="your@email.com" /></div>
+    <div class="form-group"><label>Password</label><input type="password" id="signupPassword" placeholder="कम से कम 6 characters" /></div>
+    <div id="signupError" class="form-error" style="display:none"></div>
+    <button class="btn-primary btn-full" id="signupBtn" onclick="handleSignup()">Account बनाएं</button>
+    <div class="auth-divider">or</div>
+    <button class="btn-google btn-full" onclick="handleGoogleLogin()">
+      <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844c-.209 1.125-.843 2.078-1.796 2.717v2.258h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/><path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/><path fill="#FBBC05" d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z"/><path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 6.29C4.672 4.163 6.656 3.58 9 3.58z"/></svg>
+      Google से Sign up करें
+    </button>
+    <p class="auth-switch">पहले से account है? <a href="#" onclick="showPage('loginPage')">Login करें</a></p>
+    <p class="auth-switch" style="margin-top:6px"><a href="#" onclick="showPage('landingPage')">← वापस जाओ</a></p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     MAIN APP PAGE
+═══════════════════════════════════════ -->
+<div id="appPage" class="page app-page">
+  <div class="app-sidebar" id="appSidebar">
+    <div class="sidebar-top">
+      <div class="logo" style="padding:1rem 1.25rem 0.5rem">
+        <div class="logo-icon">∑x</div>
+        <div><div class="logo-name" style="color:#fff">MathMind</div></div>
+      </div>
+      <button class="new-chat-btn" onclick="newChat()">+ New Chat</button>
+      <div class="sidebar-label">Recent Chats</div>
+      <div id="historyList" class="history-list">
+        <div class="history-empty">अभी कोई history नहीं</div>
+      </div>
+    </div>
+    <div class="sidebar-bottom">
+      <div class="user-info">
+        <div class="user-avatar" id="userAvatar">U</div>
+        <div>
+          <div class="user-name" id="userName">User</div>
+          <div class="user-plan" id="userPlan">Free Plan</div>
+        </div>
+      </div>
+      <div class="sidebar-actions">
+        <button class="sidebar-btn" onclick="showUpgradeModal()">⚡ Pro Upgrade</button>
+        <button class="sidebar-btn" onclick="handleLogout()">↩ Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Overlay for mobile sidebar -->
+  <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+  <div class="app-main">
+    <div class="app-topbar">
+      <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+      <div class="topbar-title">MathMind AI</div>
+      <button class="topbar-pro-btn" onclick="showUpgradeModal()">⚡ Pro</button>
+    </div>
+
+    <div class="chat-container" id="chatContainer">
+      <div class="chat-welcome" id="chatWelcome">
+        <div class="welcome-icon">∑x</div>
+        <h2>नमस्ते, <span id="welcomeName">Student</span>! 👋</h2>
+        <p>कोई भी math सवाल पूछो — step-by-step समझाऊंगा।</p>
+        <div class="quick-examples">
+          <div class="eg-title">Quick examples — click करके try करो:</div>
+          <div class="eg-chips">
+            <button class="eg-chip" onclick="fillQuestion(this.textContent)">x² - 5x + 6 = 0</button>
+            <button class="eg-chip" onclick="fillQuestion(this.textContent)">∫(3x² + 2x) dx</button>
+            <button class="eg-chip" onclick="fillQuestion(this.textContent)">sin²θ + cos²θ prove करो</button>
+            <button class="eg-chip" onclick="fillQuestion(this.textContent)">HCF of 72 and 96</button>
+            <button class="eg-chip" onclick="fillQuestion(this.textContent)">compound interest: P=10000, R=10%, T=2yr</button>
+            <button class="eg-chip" onclick="fillQuestion(this.textContent)">द्विघात सूत्र क्या है?</button>
+          </div>
+        </div>
+      </div>
+      <div id="messages"></div>
+    </div>
+
+    <div class="input-section">
+      <div class="input-box">
+        <textarea id="questionInput" placeholder="Math question यहाँ लिखो... (Enter = send, Shift+Enter = new line)" rows="1"></textarea>
+        <button id="sendButton" onclick="sendQuestion()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </div>
+      <div class="input-footer">
+        <span id="dailyLimitText">Free: <strong id="qlText">5</strong> questions बचे हैं आज</span>
+        <button class="input-pro-link" onclick="showUpgradeModal()">Unlimited चाहिए? Pro लो →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     UPGRADE MODAL
+═══════════════════════════════════════ -->
+<div id="upgradeModal" class="modal-overlay" onclick="if(event.target===this)closeUpgradeModal()">
+  <div class="modal-card">
+    <button class="modal-close" onclick="closeUpgradeModal()">✕</button>
+    <div class="modal-header">
+      <div class="modal-icon">⚡</div>
+      <h3>MathMind Pro</h3>
+      <p>Unlimited Math Solving Power</p>
+    </div>
+    <div class="modal-plans">
+      <div class="modal-plan" onclick="selectPlan('monthly')" id="plan-monthly">
+        <div class="mp-name">Monthly</div>
+        <div class="mp-price">₹199<span>/month</span></div>
+      </div>
+      <div class="modal-plan mp-selected" onclick="selectPlan('yearly')" id="plan-yearly">
+        <div class="mp-badge">58% OFF</div>
+        <div class="mp-name">Yearly</div>
+        <div class="mp-price">₹999<span>/year</span></div>
+        <div class="mp-save">₹83/month only!</div>
+      </div>
+    </div>
+    <ul class="modal-features">
+      <li>✓ Unlimited questions daily</li>
+      <li>✓ Complete chat history saved</li>
+      <li>✓ PDF export of solutions</li>
+      <li>✓ JEE / NEET exam mode</li>
+      <li>✓ Priority support</li>
+    </ul>
+    <button class="btn-primary btn-full btn-lg" onclick="handlePayment()">
+      अभी Upgrade करें — Razorpay से Pay करें
+    </button>
+    <p class="modal-note">🔒 Secure payment · Instant activation · Cancel anytime</p>
+  </div>
+</div>
+
+<!-- Toast notification -->
+<div id="toast" class="toast"></div>
+
+<!-- Supabase SDK -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<!-- Razorpay (uncomment जब key मिल जाए) -->
+<!-- <script src="https://checkout.razorpay.com/v1/checkout.js"></script> -->
+<script src="app.js"></script>
+</body>
+</html>
