@@ -336,52 +336,27 @@ async function sendQuestion() {
    🤖 GEMINI API CALL
    ───────────────────────────────────────────────── */
 async function callGeminiAI(question) {
-  // Build conversation context
-  const contents = [];
-
-  // Add recent history for context
+  const messages = [];
   chatHistory.slice(-6).forEach(m => {
     if (m.role === "user") {
-      contents.push({ role: "user", parts: [{ text: m.content }] });
+      messages.push({ role: "user", parts: [{ text: m.content }] });
     } else if (m.role === "assistant" && m.parsed) {
-      contents.push({ role: "model", parts: [{ text: JSON.stringify(m.parsed) }] });
+      messages.push({ role: "model", parts: [{ text: JSON.stringify(m.parsed) }] });
     }
   });
 
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${CONFIG.GEMINI_API_KEY}`;
-
-  const response = await fetch(url, {
+  const response = await fetch("/api/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      system_instruction: { parts: [{ text: MATH_SYSTEM_PROMPT }] },
-      contents,
-      generationConfig: {
-        temperature: 0.3,
-        maxOutputTokens: 1500,
-      }
-    })
+    body: JSON.stringify({ messages })
   });
 
   if (!response.ok) {
     const err = await response.json().catch(() => ({}));
-    if (response.status === 400) throw new Error("Gemini API key गलत है। app.js में GEMINI_API_KEY check करो।");
-    throw new Error(err.error?.message || `Server error: ${response.status}`);
+    throw new Error(err.error || "Server error: " + response.status);
   }
 
-  const data    = await response.json();
-  const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text || "";
-
-  try {
-    const clean = rawText.replace(/```json|```/g, "").trim();
-    return JSON.parse(clean);
-  } catch {
-    return {
-      steps:  [{ label: "Solution", work: rawText }],
-      answer: "ऊपर देखो",
-      tip:    ""
-    };
-  }
+  return await response.json();
 }
 
 /* ─────────────────────────────────────────────────
