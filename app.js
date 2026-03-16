@@ -12,7 +12,7 @@ const CONFIG = {
 
   // ✅ Step 2: supabase.com से मिली keys
   SUPABASE_URL:      "https://gmokwlqudjqrvsacxvlm.supabase.co",
-  SUPABASE_ANON_KEY: "YOUR_SUPABASE_ANON_KEY_HERE", // eyJhbGc... वाली key
+  SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdtb2t3bHF1ZGpxcnZzYWN4dmxtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0ODU4NzQsImV4cCI6MjA4OTA2MTg3NH0.vHfu76sEhjLjI9V194dfGdOnDaC0NypFNLkXjUBfUJQ", // eyJhbGc... वाली key
 
   // ✅ Step 3: razorpay.com से key (बाद में)
   RAZORPAY_KEY: "YOUR_RAZORPAY_KEY_HERE",
