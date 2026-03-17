@@ -1,5 +1,3 @@
-
-
 const CONFIG = {
     SUPABASE_URL:      "https://gmokwlqudjqrvsacxvlm.supabase.co",
   SUPABASE_ANON_KEY: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imdtb2t3bHF1ZGpxcnZzYWN4dmxtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzM0ODU4NzQsImV4cCI6MjA4OTA2MTg3NH0.vHfu76sEhjLjI9V194dfGdOnDaC0NypFNLkXjUBfUJQ",
