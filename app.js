@@ -1,4 +1,4 @@
-/* MathMind AI — app.js */
+
 
 const CONFIG = {
     SUPABASE_URL:      "https://gmokwlqudjqrvsacxvlm.supabase.co",
